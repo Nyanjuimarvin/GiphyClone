@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@font-face {
+  font-family: "Nexa Black";
+  src: url("//db.onlinewebfonts.com/t/3752a0f4c3f80b95df1301564a50b30e.eot");
+  src: url("//db.onlinewebfonts.com/t/3752a0f4c3f80b95df1301564a50b30e.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/3752a0f4c3f80b95df1301564a50b30e.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/3752a0f4c3f80b95df1301564a50b30e.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/3752a0f4c3f80b95df1301564a50b30e.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/3752a0f4c3f80b95df1301564a50b30e.svg#Nexa Black")
+      format("svg");
+}
+
+body {
+  background-color: #121212;
+  font-family: NexaBlack;
+}
