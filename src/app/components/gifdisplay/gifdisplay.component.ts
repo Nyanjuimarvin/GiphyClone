@@ -9,14 +9,15 @@ import { GifHttpServiceService } from 'src/app/Services/gif-http-service.service
 })
 export class GifdisplayComponent implements OnInit {
 
-  gif!: Gifs;
-  gifDisplay:Gifs[]=[];
+  gif!: Gifs;//Gif Class
+  gifDisplay:Gifs[]=[];//Gif Class Array
 
 
 
   constructor(private gifService: GifHttpServiceService) { }
 
   ngOnInit(): void {
+    /*Assign the variables in this class to the variables GifHttpservice class*/
     this.gifService.trendingGif();
     this.gif = this.gifService.gif;
     this.gifDisplay = this.gifService.gifArray;

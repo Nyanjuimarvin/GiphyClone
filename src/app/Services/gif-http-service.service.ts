@@ -8,8 +8,8 @@ import axios from 'axios';
 })
 export class GifHttpServiceService {
 
-  gif:Gifs;
-  gifArray:Gifs[]=[];
+  gif:Gifs;//Service Gif Class
+  gifArray:Gifs[]=[];//Array to Push Gif Urls
   // query:string = "doge";
   constructor() {
     this.gif = new Gifs("");
@@ -19,11 +19,13 @@ export class GifHttpServiceService {
    async trendingGif(){
      try{
        const response = await axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=${environment.Api_Url}&limit=60&offset=0&rating=g&lang=en`);
-       const responseArray = response.data.data;
+       const responseArray = response.data.data;//Save the response Array to a variable
+
+       /*Loop through each object in the array and get the gif Urls */
        responseArray.forEach((element:any) => {
-         
-         if(element.images.original.url){
-         this.gifArray.push(new Gifs(element.images.original.url))
+
+         if(element.images.original.url){//Handles cases where images are not found
+         this.gifArray.push(new Gifs(element.images.original.url))//Push the gif Urls to the GifArray
          }
        });
        
@@ -31,7 +33,7 @@ export class GifHttpServiceService {
        console.log(this.gifArray);
 
      }catch(error){
-       alert("Nope,no gifs for you");
+       alert("Nope,no gifs for you");//If no response,alert this
      }
    }
 }
