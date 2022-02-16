@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 @font-face {
   font-family: "Nexa Black";
@@ -18,5 +19,6 @@
 
 body {
   background-color: #121212;
-  font-family: NexaBlack;
+  font-family: Nexa Black;
 }
+

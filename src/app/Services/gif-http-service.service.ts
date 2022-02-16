@@ -8,9 +8,9 @@ import axios from 'axios';
 })
 export class GifHttpServiceService {
 
-  gif: Gifs;//Service Gif Class
-  gifArray: Gifs[] = [];//Array to Push Gif Urls
-  // query:string = "doge";
+  gif: Gifs;
+  gifArray: Gifs[] = [];
+
   constructor() {
     this.gif = new Gifs("");
   }
@@ -18,20 +18,21 @@ export class GifHttpServiceService {
 
   async trendingGif() {
     try {
-      const response = await axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=${environment.Api_Url}&limit=60&offset=0&rating=g&lang=en`);
-      const responseArray = response.data.data;//Save the response Array to a variable
+      const response = await axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=${environment.Api_Url}&limit=50&offset=0&rating=g&lang=en`);
+      const responseArray = response.data.data;
 
-      /*Loop through each object in the array and get the gif Urls */
       responseArray.forEach((element: any) => {
 
-        this.gifArray.push(new Gifs(element.images.original.url))//Push the gif Urls to the GifArray
+        this.gifArray.push(new Gifs(element.images.original.url))
       });
 
       console.log(responseArray);
       console.log(this.gifArray);
 
     } catch (error) {
-      alert("Nope,no gifs for you");//If no response,alert this
+      alert("Nope,no gifs for you");
     }
   }
 }
+
+

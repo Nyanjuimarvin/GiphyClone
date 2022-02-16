@@ -8,19 +8,28 @@ import axios from 'axios';
 })
 export class GifsearchhttpService {
 
-  gif!:Gifs;
-  searchArray:Gifs[] = [];
+    gif!:Gifs
+    gifsAray:Gifs[]=[];
 
-  constructor() { 
+ 
+
+  constructor() {
     this.gif = new Gifs("");
   }
 
-  async searchGifs(userQuery:string){
+  async searchGifs(Query:any) {
 
-    try{
-      const searchResponse = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${environment.Api_Url}&q=${userQuery}&limit=40&offset=0&rating=g&lang=en`)
-    }catch(error){
-
+    try {
+      const searchResponse = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${environment.Api_Url}&q=${Query.userQuery}&limit=50&offset=0&rating=g&lang=en`)
+      const searchResponseArray = searchResponse.data.data;
+      searchResponseArray.forEach((element: any) => {
+        this.gifsAray.push(new Gifs(element.images.original.url))
+      });
+    } catch (error) {
+      alert("Nope..Nobody Here but us chickens")
     }
   }
+
+
+ 
 }

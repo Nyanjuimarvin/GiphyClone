@@ -1,0 +1,11 @@
+<div class="row">
+
+  <form (ngSubmit)="queryResult()" #queryForm='ngForm' action="">
+    <div class="input-group">
+      <input class="form-control" type="text" name='Query' id="" [(ngModel)]="searchQuery.userQuery" #Query='ngModel' placeholder=" Search Gifs...">
+      <button class="btn btn-outline-dark d-block"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </div>
+
+
+  </form>
+</div>

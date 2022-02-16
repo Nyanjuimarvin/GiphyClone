@@ -1,13 +1,17 @@
-<div class="row row-cols-1 row-cols-md-4 g-3">
-  <!-- Loop through each element in gifArray and set the property as the img source -->
-  <ng-container *ngFor="let gif of gifDisplay">
-    <div class="col">
+<mat-progress-bar mode="indeterminate"*ngIf="gifDisplay.length <= 40"></mat-progress-bar>
+<div class="container-fluid mb-5">
+  <h4 class="text-center mt-4 text-white mb-3 text-decoration-underline">Trending Gifs</h4>
+  <div class="row row-cols-1 row-cols-md-4 g-3">
+    <!-- Loop through each element in gifArray and set the property as the img source -->
+    <ng-container *ngFor="let gif of gifDisplay">
+      <div class="col">
 
-      <div class="card">
-        <img class="img-fluid" src={{gif.gifUrl}} alt="gif">
+        <div class="card">
+          <img class="img-fluid" src={{gif.gifUrl}} alt="gif">
+
+        </div>
 
       </div>
-
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
 </div>
